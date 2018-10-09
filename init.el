@@ -63,7 +63,6 @@
 (scroll-bar-mode -1)
 (global-eldoc-mode -1)
 (tool-bar-mode -1)
-(global-hl-line-mode t)
 (delete-selection-mode t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
