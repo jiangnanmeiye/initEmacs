@@ -12,11 +12,10 @@
 		;; --- Auto-completion ---
 		company
 		;; --- Better Editor ---
-		hungry-delete
+		hungry-delete		
 		swiper
 		counsel
 		smartparens
-		paredit
 		;; --- Major Mode ---
 		js2-mode
 		;; --- Minor Mode ---
@@ -59,7 +58,7 @@
 
 (defun open-config-file ()
   (interactive)
-  (find-file "c:/users/koal/AppData/Roaming/.emacs.d/init.el"))
+  (find-file "c:/users/admin/AppData/Roaming/.emacs.d/init.el"))
 
 (global-set-key (kbd "<f1>") 'open-config-file)
 
@@ -134,7 +133,8 @@
 
 (add-hook 'scheme-mode-hook
   (lambda ()
-    (paredit-mode 1)
+    ;;    (paredit-mode 1)  I'm not familiar with Paredit
+    (smartparens-mode t)
     (define-key scheme-mode-map (kbd "<f5>") 'scheme-send-last-sexp-split-window)
     (define-key scheme-mode-map (kbd "<f6>") 'scheme-send-definition-split-window)))
 
@@ -158,5 +158,4 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Courier New" :foundry "outline" :slant italic :weight bold :height 98 :width normal))))
  '(cursor ((t (:background "snow"))))
- '(fringe ((t (:background "dim gray"))))
  '(js2-external-variable ((t (:foreground "dim gray")))))
