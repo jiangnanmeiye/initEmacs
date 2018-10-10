@@ -48,7 +48,6 @@
 (setq make-backup-files nil)
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 (setq-default cursor-type 'bar)
-(recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
@@ -158,4 +157,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Courier New" :foundry "outline" :slant italic :weight bold :height 98 :width normal))))
+ '(cursor ((t (:background "snow"))))
+ '(fringe ((t (:background "dim gray"))))
  '(js2-external-variable ((t (:foreground "dim gray")))))
