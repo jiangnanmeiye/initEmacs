@@ -16,6 +16,7 @@
 		swiper
 		counsel
 		smartparens
+		paredit
 		;; --- Major Mode ---
 		js2-mode
 		;; --- Minor Mode ---
@@ -70,6 +71,9 @@
 (tool-bar-mode -1)
 (delete-selection-mode t)
 
+;;Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;;Swiper binding
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -109,7 +113,7 @@
   (cond
    ((= 1 (count-windows))
     (delete-other-windows)
-    (split-window-vertically (floor (* 0.68 (window-height))))
+    (split-window-horizontally (floor (* 0.68 (window-width))))
     (other-window 1)
     (switch-to-buffer "*scheme*")
     (other-window 1))
@@ -133,8 +137,7 @@
 
 (add-hook 'scheme-mode-hook
   (lambda ()
-    ;;    (paredit-mode 1)  I'm not familiar with Paredit
-    (smartparens-mode t)
+    (paredit-mode 1)
     (define-key scheme-mode-map (kbd "<f5>") 'scheme-send-last-sexp-split-window)
     (define-key scheme-mode-map (kbd "<f6>") 'scheme-send-definition-split-window)))
 
@@ -148,7 +151,7 @@
  '(custom-enabled-themes (quote (misterioso)))
  '(package-selected-packages
    (quote
-    (paredit company hungry-delete swiper counsel smartparens js2-mode nodejs-repl)))
+    (magit paredit company hungry-delete swiper counsel smartparens js2-mode nodejs-repl)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
