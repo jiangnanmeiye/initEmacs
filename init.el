@@ -16,6 +16,9 @@
 		swiper
 		counsel
 		smartparens
+		paredit
+		speedbar
+		ecb
 		;; --- Major Mode ---
 		js2-mode
 		;; --- Minor Mode ---
@@ -37,6 +40,19 @@
        (when (not (package-installed-p pkg))
 	 (package-install pkg))))
 
+;;ecb speedbar
+(require 'ecb)
+(require 'speedbar)
+(setq ecb-windows-width 30)
+(setq speedbar-show-unknown-files t)
+(setq speedbar-use-images nil)
+(setq sr-speedbar-width 30)
+(setq sr-speedbar-auto-refresh t)
+(setq sr-speedbar-right-side t)
+(setq speedbar-tag-hierarchy-method nil)
+(global-set-key (kbd "<f2>") 'sr-speedbar-toggle)
+(global-set-key (kbd "<f3>") 'ecb-activate)
+
 (require 'org)
 (require 'hungry-delete)
 (require 'smartparens-config)
@@ -56,9 +72,12 @@
 ;;Always start smartparens mode in emacs-mode
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 
+;;Always start smartparens mode in haskell-mode
+(add-hook 'haskell-mode-hook 'smartparens-mode)
+
 (defun open-config-file ()
   (interactive)
-  (find-file "c:/users/admin/AppData/Roaming/.emacs.d/init.el"))
+  (find-file "c:/users/koal/AppData/Roaming/.emacs.d/init.el"))
 
 (global-set-key (kbd "<f1>") 'open-config-file)
 
@@ -69,6 +88,7 @@
 (global-eldoc-mode -1)
 (tool-bar-mode -1)
 (delete-selection-mode t)
+(intero-global-mode 1)
 
 ;;Swiper binding
 (ivy-mode 1)
@@ -133,8 +153,7 @@
 
 (add-hook 'scheme-mode-hook
   (lambda ()
-    ;;    (paredit-mode 1)  I'm not familiar with Paredit
-    (smartparens-mode t)
+    (paredit-mode 1)
     (define-key scheme-mode-map (kbd "<f5>") 'scheme-send-last-sexp-split-window)
     (define-key scheme-mode-map (kbd "<f6>") 'scheme-send-definition-split-window)))
 
@@ -148,7 +167,7 @@
  '(custom-enabled-themes (quote (misterioso)))
  '(package-selected-packages
    (quote
-    (paredit company hungry-delete swiper counsel smartparens js2-mode nodejs-repl)))
+    (sr-speedbar ecb rainbow-delimiters rainbow-blocks intero scala-mode paredit company hungry-delete swiper counsel smartparens js2-mode nodejs-repl)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -158,4 +177,5 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Courier New" :foundry "outline" :slant italic :weight bold :height 98 :width normal))))
  '(cursor ((t (:background "snow"))))
+ '(ecb-analyse-face ((t (:inherit gray :background "magenta"))))
  '(js2-external-variable ((t (:foreground "dim gray")))))
