@@ -17,7 +17,7 @@
 		counsel
 		smartparens
 		paredit
-		speedbar
+		sr-speedbar
 		ecb
 		;; --- Major Mode ---
 		js2-mode
@@ -50,8 +50,8 @@
 (setq sr-speedbar-auto-refresh t)
 (setq sr-speedbar-right-side t)
 (setq speedbar-tag-hierarchy-method nil)
-(global-set-key (kbd "<f2>") 'sr-speedbar-toggle)
-(global-set-key (kbd "<f3>") 'ecb-activate)
+(global-set-key (kbd "<f2>") 'ecb-activate)
+(global-set-key (kbd "<f3>") 'sr-speedbar-toggle)
 
 (require 'org)
 (require 'hungry-delete)
