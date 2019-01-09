@@ -90,6 +90,9 @@
 (delete-selection-mode t)
 (intero-global-mode 1)
 
+;;Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;;Swiper binding
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -129,7 +132,7 @@
   (cond
    ((= 1 (count-windows))
     (delete-other-windows)
-    (split-window-vertically (floor (* 0.68 (window-height))))
+    (split-window-horizontally (floor (* 0.68 (window-width))))
     (other-window 1)
     (switch-to-buffer "*scheme*")
     (other-window 1))
