@@ -20,6 +20,8 @@
 		sr-speedbar
 		ecb
 		;; --- Major Mode ---
+		intero
+		irony
 		js2-mode
 		;; --- Minor Mode ---
 		nodejs-repl
@@ -74,6 +76,13 @@
 
 ;;Always start smartparens mode in haskell-mode
 (add-hook 'haskell-mode-hook 'smartparens-mode)
+
+;;hook mode for C/C++
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 (defun open-config-file ()
   (interactive)
