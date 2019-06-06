@@ -42,6 +42,14 @@
        (when (not (package-installed-p pkg))
 	 (package-install pkg))))
 
+;;other-window
+(global-set-key [M-left] 'windmove-left)
+(global-set-key [M-right] 'windmove-right)
+(global-set-key [M-up] 'windmove-up)
+(global-set-key [M-down] 'windmove-down)
+
+(global-set-key (kbd "<f1>") 'open-config-file)
+
 ;;ecb speedbar
 (require 'ecb)
 (require 'speedbar)
@@ -52,8 +60,13 @@
 (setq sr-speedbar-auto-refresh t)
 (setq sr-speedbar-right-side t)
 (setq speedbar-tag-hierarchy-method nil)
-(global-set-key (kbd "<f2>") 'ecb-activate)
+;;active or deactivate ecb
+(global-set-key (kbd "<f7>") 'ecb-activate)
+(global-set-key (kbd "<f8>") 'ecb-deactivate)
 (global-set-key (kbd "<f3>") 'sr-speedbar-toggle)
+;;show or hide ecb window
+(define-key global-map [(control f1)] 'ecb-show-ecb-windows)
+(define-key global-map [(control f2)] 'ecb-hide-ecb-windows)
 
 (require 'org)
 (require 'hungry-delete)
@@ -87,8 +100,6 @@
 (defun open-config-file ()
   (interactive)
   (find-file "c:/users/koal/AppData/Roaming/.emacs.d/init.el"))
-
-(global-set-key (kbd "<f1>") 'open-config-file)
 
 (global-company-mode t)
 (global-linum-mode t)
