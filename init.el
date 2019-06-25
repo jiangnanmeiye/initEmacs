@@ -20,7 +20,8 @@
 		sr-speedbar
 		ecb
 		;; --- Major Mode ---
-		intero
+		;; After install Haskell Platform
+		;; intero
 		irony
 		js2-mode
 		;; --- Minor Mode ---
@@ -88,7 +89,7 @@
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 
 ;;Always start smartparens mode in haskell-mode
-(add-hook 'haskell-mode-hook 'smartparens-mode)
+;;(add-hook 'haskell-mode-hook 'smartparens-mode)
 
 ;;hook mode for C/C++
 (add-hook 'c++-mode-hook 'irony-mode)
