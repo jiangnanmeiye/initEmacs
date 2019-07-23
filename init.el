@@ -109,7 +109,7 @@
 (global-eldoc-mode -1)
 (tool-bar-mode -1)
 (delete-selection-mode t)
-(intero-global-mode 1)
+;;(intero-global-mode 1)
 
 ;;Magit
 (global-set-key (kbd "C-x g") 'magit-status)
